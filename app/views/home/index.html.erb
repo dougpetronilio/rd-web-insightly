@@ -1,0 +1,7 @@
+<%= form_tag '/home/auth', method: 'post' do %>
+  <div class='form-group'>
+    <label>Api Key: </label>
+    <%= text_field_tag :key, nil, placeholder: 'zxc298askjzc923klvxz901nca921nocsa90ckl23190kzx2190', class: 'form-control' %>
+  </div>
+  <%= submit_tag 'Entrar', class: 'btn btn-default' %>
+<% end %>

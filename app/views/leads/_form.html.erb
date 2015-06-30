@@ -1,0 +1,22 @@
+<%= form_tag('/leads/save', method: :post) do%>
+  <div class="form-group">
+    <%= hidden_field_tag :id, @lead.id %>
+    <label>Nome: </label>
+    <%= text_field_tag :name, @lead.name, class: 'form-control' %>
+    <label>Sobrenome: </label>
+    <%= text_field_tag :last_name, @lead.last_name, class: 'form-control' %>
+    <label>Email: </label>
+    <%= text_field_tag :email, @lead.email, placeholder: 'email@google.com', class: 'form-control' %>
+    <label>Cargo: </label>
+    <%= text_field_tag :job_title, @lead.job_title, class: 'form-control' %>
+    <label>Company: </label>
+    <%= text_field_tag :company, @lead.company, class: 'form-control' %>
+    <label>Telefone: </label>
+    <%= text_field_tag :phone, @lead.phone, placeholder: '(99) 9999-9999', class: 'form-control' %>
+    <label>Site: </label>
+    <%= text_field_tag :website, @lead.website, placeholder: 'www.google.com', class: 'form-control' %>
+  </div>
+  <%= submit_tag "Salvar", class: "btn btn-default" %>
+<% end %>
+<br>
+<%= link_to 'Voltar', '/leads' %>

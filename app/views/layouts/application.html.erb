@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RdInsightlyWeb</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="main-container" class="container">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <div class="row">
+        <h1><%= @title %></h1>
+      </div>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </div>  
+</div>
+
+</body>
+</html>

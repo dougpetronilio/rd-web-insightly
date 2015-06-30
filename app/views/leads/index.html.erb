@@ -1,0 +1,28 @@
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Company</th>
+    <th>Job Title</th>
+    <th>Phone</th>
+    <th>Website</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @leads.each do |lead| %>
+  <tr>
+    <th><%= lead.name%></th>
+    <th><%= lead.last_name%></th>
+    <th><%= lead.email%></th>
+    <th><%= lead.company%></th>
+    <th><%= lead.job_title%></th>
+    <th><%= lead.phone%></th>
+    <th><%= lead.website%></th>
+    <th><%= link_to 'Excluir', {action: :destroy, id: lead.id}, method: :delete %></th>
+    <th><%= link_to 'Editar', action: :edit, id: lead.id %></th>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Criar Lead', controller: 'leads', action: 'new' %>
