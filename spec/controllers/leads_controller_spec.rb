@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe LeadsController, type: :controller do
-  before { RdInsightly.create_authorization TOKEN }
+  before do
+    auth = RdInsightly.create_authorization TOKEN
+    session[:token] = auth.api_token
+  end
 
   describe "GET #index" do
     it "returns http success" do

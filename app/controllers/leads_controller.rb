@@ -3,27 +3,27 @@ class LeadsController < ApplicationController
 
   def index
     @title = 'Lista de Leads'
-    @leads = Lead.all 
+    @leads = Lead.all
   end
 
   def new
     @title = 'Cadastro de Lead'
-    @lead = Lead.new 
+    @lead = Lead.new
   end
 
   def edit
-    @lead = RdInsightly::Lead.find params[:id] 
+    @lead = Lead.find params[:id]
   end
 
   def destroy
-    lead = RdInsightly::Lead.find params[:id] 
+    lead = Lead.find params[:id]
     lead.delete
     redirect_to '/leads/index'
   end
 
   def save
     if params[:id] && params[:id] != ''
-      lead = RdInsightly::Lead.find params[:id] 
+      lead = RdInsightly::Lead.find params[:id]
       lead.update params
     else
       RdInsightly::Lead.create params[:last_name], name: params[:name], email: params[:email], company: params[:company], job_title: params[:job_title], phone: params[:phone], website: params[:website]
@@ -35,6 +35,7 @@ class LeadsController < ApplicationController
 
   protected
   def authenticate 
-    redirect_to '/home/index' unless RdInsightly.authorized?
+    redirect_to '/home/index' unless session[:token] && RdInsightly.authorized?
+    RdInsightly.token = session[:token]
   end
 end
