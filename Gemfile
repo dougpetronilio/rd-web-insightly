@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'rd_insightly', path: '/Users/douglaspetronilio/ruby/rd_insightly/'
+gem 'rd_insightly'
 gem 'therubyracer'
 gem 'less-rails-bootstrap'
 
