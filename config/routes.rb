@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'leads/edit'
 
-  get 'leads/destroy'
+  delete 'leads/destroy'
 
   post 'leads/save'
 
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/lead/save', to: 'lead#save'
 
   get 'home/index'
+
+  get 'home/logout'
 
   post 'home/auth', to: 'home#auth'
 

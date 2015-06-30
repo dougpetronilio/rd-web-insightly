@@ -8,4 +8,9 @@ class HomeController < ApplicationController
     RdInsightly.create_authorization params[:key] 
     redirect_to '/leads/index', key: params[:key]
   end
+
+  def logout
+    RdInsightly.logout
+    redirect_to '/leads/index'
+  end
 end
